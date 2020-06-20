@@ -1,0 +1,42 @@
+{{ define "main" }}
+<main>
+  <section class="py-10">
+    <div class="container mx-auto max-w-screen-xl">
+      <h1 class="text-4xl">{{ .Params.Name }}</h1>
+      {{ $name := .Params.Name }}
+      <div class="grid grid-cols-12 gap-4 py-4">
+        {{ range .Params.Gallery }} <!-- Getting image -->
+          <img class="col-span-4" src="{{ . }}">
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container mx-auto max-w-screen-xl">
+      <nav>
+        <ul class="flex">
+          <li class="mr-4">
+            <span class="font-bold">Guests:</span> {{ .Params.Config.Guests }}
+          </li>
+          <li class="mr-4">
+            <span class="font-bold">Bedrooms:</span> {{ .Params.Config.Bedrooms }}
+          </li>
+          <li class="mr-4">
+            <span class="font-bold">Beds:</span> {{ .Params.Config.Beds }}
+          </li>
+          <li class="mr-4">
+            <span class="font-bold">Baths:</span> {{ .Params.Config.Baths }}
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+  <section>
+    <div class="container mx-auto max-w-screen-xl">
+      <div class="content">
+        {{ .Content }}
+      </div>
+    </div>
+  </section>
+</main>
+{{ end }}
